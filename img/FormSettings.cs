@@ -22,18 +22,21 @@ namespace img
         {
             InitializeComponent();
             sets = new SettingsParser();
+            sets.FileName = sp.FileName;
             foreach (var item in sp.sets.Paths)
-                sets.sets.Paths.Add(new Path(item.Name,item.IsActive));
+                sets.sets.Paths.Add(new Path(item.Name, item.IsEnabled));
+            sets.sets.DisableBack = sp.sets.DisableBack;
+            sets.sets.ShowToolTip = sp.sets.ShowToolTip;
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Clear();
+            checkedListBoxPaths.Items.Clear();
             NonManualChecking = true;
             foreach (var item in sets.sets.Paths)
-            {
-                checkedListBox1.Items.Add(item.Name, item.IsActive);
-            }
+                checkedListBoxPaths.Items.Add(item.Name, item.IsEnabled);
+            checkBoxDisableBack.Checked = sets.sets.DisableBack;
+            checkBoxShowToolTip.Checked = sets.sets.ShowToolTip;
             NonManualChecking = false;
         }
 
@@ -43,7 +46,7 @@ namespace img
         {
             if (NonManualChecking) return;
             var p = sets.sets.Paths[e.Index];
-            p.IsActive = (e.NewValue == CheckState.Checked);
+            p.IsEnabled = (e.NewValue == CheckState.Checked);
             sets.sets.Paths[e.Index] = p;
         }
 
@@ -53,50 +56,62 @@ namespace img
             {
                 Path p = new Path(folderBrowserDialog1.SelectedPath, true);
                 sets.sets.Paths.Add(p);
-                checkedListBox1.SelectedIndex = checkedListBox1.Items.Add(p.Name, true);
+                checkedListBoxPaths.SelectedIndex = checkedListBoxPaths.Items.Add(p.Name, true);
             }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonRemove.Enabled = checkedListBox1.SelectedIndex != -1;
-            buttonUp.Enabled = checkedListBox1.SelectedIndex > 0;
-            buttonDown.Enabled = (checkedListBox1.SelectedIndex != -1) &&
-                (checkedListBox1.SelectedIndex < checkedListBox1.Items.Count - 1);
+            buttonRemove.Enabled = checkedListBoxPaths.SelectedIndex != -1;
+            buttonUp.Enabled = checkedListBoxPaths.SelectedIndex > 0;
+            buttonDown.Enabled = (checkedListBoxPaths.SelectedIndex != -1) &&
+                (checkedListBoxPaths.SelectedIndex < checkedListBoxPaths.Items.Count - 1);
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            sets.sets.Paths.RemoveAt(checkedListBox1.SelectedIndex);
-            checkedListBox1.Items.RemoveAt(checkedListBox1.SelectedIndex);
+            sets.sets.Paths.RemoveAt(checkedListBoxPaths.SelectedIndex);
+            checkedListBoxPaths.Items.RemoveAt(checkedListBoxPaths.SelectedIndex);
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
-            var i = checkedListBox1.SelectedIndex;
+            var i = checkedListBoxPaths.SelectedIndex;
             var p = sets.sets.Paths[i];
             sets.sets.Paths.RemoveAt(i);
             sets.sets.Paths.Insert(i - 1, p);
             //
-            var pl = checkedListBox1.Items[i];
-            checkedListBox1.Items.RemoveAt(i);
-            checkedListBox1.Items.Insert(i - 1, pl);
-            checkedListBox1.SetItemChecked(i - 1, p.IsActive);
-            checkedListBox1.SelectedIndex = i - 1;
+            var pl = checkedListBoxPaths.Items[i];
+            checkedListBoxPaths.Items.RemoveAt(i);
+            checkedListBoxPaths.Items.Insert(i - 1, pl);
+            checkedListBoxPaths.SetItemChecked(i - 1, p.IsEnabled);
+            checkedListBoxPaths.SelectedIndex = i - 1;
         }
 
         private void buttonDown_Click(object sender, EventArgs e)
         {
-            var i = checkedListBox1.SelectedIndex;
-            var p = sets.sets.Paths[i+1];
+            var i = checkedListBoxPaths.SelectedIndex;
+            var p = sets.sets.Paths[i + 1];
             sets.sets.Paths.RemoveAt(i + 1);
             sets.sets.Paths.Insert(i, p);
             //
-            var pl = checkedListBox1.Items[i + 1];
-            checkedListBox1.Items.RemoveAt(i + 1);
-            checkedListBox1.Items.Insert(i, pl);
-            checkedListBox1.SetItemChecked(i, p.IsActive);
-            checkedListBox1.SelectedIndex = i + 1;
+            var pl = checkedListBoxPaths.Items[i + 1];
+            checkedListBoxPaths.Items.RemoveAt(i + 1);
+            checkedListBoxPaths.Items.Insert(i, pl);
+            checkedListBoxPaths.SetItemChecked(i, p.IsEnabled);
+            checkedListBoxPaths.SelectedIndex = i + 1;
+        }
+
+        private void checkBoxDisableBack_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NonManualChecking) return;
+            sets.sets.DisableBack = checkBoxDisableBack.Checked;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NonManualChecking) return;
+            sets.sets.ShowToolTip = checkBoxShowToolTip.Checked;
         }
     }
 }

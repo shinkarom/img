@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.previousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemPrev = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemReload = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,11 +45,10 @@
             // pictureBox1
             // 
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(284, 262);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -57,65 +56,64 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nextToolStripMenuItem,
-            this.previousToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.reloadToolStripMenuItem,
-            this.statsToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.ToolStripMenuItemNext,
+            this.ToolStripMenuItemPrev,
+            this.ToolStripMenuItemDelete,
+            this.ToolStripMenuItemReload,
+            this.ToolStripMenuItemStats,
+            this.ToolStripMenuItemSettings,
+            this.ToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 180);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(126, 158);
             // 
-            // nextToolStripMenuItem
+            // ToolStripMenuItemNext
             // 
-            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nextToolStripMenuItem.Text = "Next";
-            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
+            this.ToolStripMenuItemNext.Name = "ToolStripMenuItemNext";
+            this.ToolStripMenuItemNext.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemNext.Text = "Next";
+            this.ToolStripMenuItemNext.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
-            // previousToolStripMenuItem
+            // ToolStripMenuItemPrev
             // 
-            this.previousToolStripMenuItem.Name = "previousToolStripMenuItem";
-            this.previousToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.previousToolStripMenuItem.Text = "Previous";
-            this.previousToolStripMenuItem.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
+            this.ToolStripMenuItemPrev.Name = "ToolStripMenuItemPrev";
+            this.ToolStripMenuItemPrev.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemPrev.Text = "Previous";
+            this.ToolStripMenuItemPrev.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
             // 
-            // deleteToolStripMenuItem
+            // ToolStripMenuItemDelete
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteToolStripMenuItem.Text = "Delete...";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemDelete.Text = "Delete...";
+            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // settingsToolStripMenuItem
+            // ToolStripMenuItemReload
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.settingsToolStripMenuItem.Text = "Settings...";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            this.ToolStripMenuItemReload.Name = "ToolStripMenuItemReload";
+            this.ToolStripMenuItemReload.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemReload.Text = "Reload";
+            this.ToolStripMenuItemReload.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
-            // statsToolStripMenuItem
+            // ToolStripMenuItemStats
             // 
-            this.statsToolStripMenuItem.Name = "statsToolStripMenuItem";
-            this.statsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.statsToolStripMenuItem.Text = "Stats...";
-            this.statsToolStripMenuItem.Click += new System.EventHandler(this.statsToolStripMenuItem_Click);
+            this.ToolStripMenuItemStats.Name = "ToolStripMenuItemStats";
+            this.ToolStripMenuItemStats.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemStats.Text = "Stats...";
+            this.ToolStripMenuItemStats.Click += new System.EventHandler(this.statsToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // ToolStripMenuItemSettings
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemSettings.Text = "Settings...";
+            this.ToolStripMenuItemSettings.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // reloadToolStripMenuItem
+            // ToolStripMenuItemExit
             // 
-            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reloadToolStripMenuItem.Text = "Reload";
-            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(125, 22);
+            this.ToolStripMenuItemExit.Text = "Exit";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -125,15 +123,16 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "img";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -141,13 +140,13 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem previousToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemNext;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemStats;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemPrev;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSettings;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemReload;
     }
 }
 

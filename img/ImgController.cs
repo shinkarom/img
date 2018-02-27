@@ -33,7 +33,7 @@ namespace img
         {
             HashSet<string> extensions = new HashSet<string> { ".bmp", ".gif", ".jpg", ".jpeg", ".png", ".tif", ".tiff" };
             foreach (var item in Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
-                if (extensions.Contains(System.IO.Path.GetExtension(item)))
+                if (extensions.Contains(System.IO.Path.GetExtension(item).ToLower()))
                     AllImages.Add(item);
         }
 

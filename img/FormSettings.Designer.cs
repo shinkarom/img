@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBoxPaths = new System.Windows.Forms.CheckedListBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -36,17 +36,19 @@
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
+            this.checkBoxDisableBack = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowToolTip = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // checkedListBoxPaths
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 12);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(290, 274);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.checkedListBoxPaths.FormattingEnabled = true;
+            this.checkedListBoxPaths.Location = new System.Drawing.Point(12, 12);
+            this.checkedListBoxPaths.Name = "checkedListBoxPaths";
+            this.checkedListBoxPaths.Size = new System.Drawing.Size(290, 274);
+            this.checkedListBoxPaths.TabIndex = 0;
+            this.checkedListBoxPaths.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+            this.checkedListBoxPaths.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // buttonOK
             // 
@@ -116,31 +118,56 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             // 
+            // checkBoxDisableBack
+            // 
+            this.checkBoxDisableBack.AutoSize = true;
+            this.checkBoxDisableBack.Location = new System.Drawing.Point(15, 314);
+            this.checkBoxDisableBack.Name = "checkBoxDisableBack";
+            this.checkBoxDisableBack.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxDisableBack.TabIndex = 7;
+            this.checkBoxDisableBack.Text = "Disable moving back";
+            this.checkBoxDisableBack.UseVisualStyleBackColor = true;
+            this.checkBoxDisableBack.CheckedChanged += new System.EventHandler(this.checkBoxDisableBack_CheckedChanged);
+            // 
+            // checkBoxShowToolTip
+            // 
+            this.checkBoxShowToolTip.AutoSize = true;
+            this.checkBoxShowToolTip.Location = new System.Drawing.Point(17, 339);
+            this.checkBoxShowToolTip.Name = "checkBoxShowToolTip";
+            this.checkBoxShowToolTip.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxShowToolTip.TabIndex = 8;
+            this.checkBoxShowToolTip.Text = "Show tooltip";
+            this.checkBoxShowToolTip.UseVisualStyleBackColor = true;
+            this.checkBoxShowToolTip.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(401, 402);
+            this.Controls.Add(this.checkBoxShowToolTip);
+            this.Controls.Add(this.checkBoxDisableBack);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.checkedListBoxPaths);
             this.MaximizeBox = false;
             this.Name = "FormSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxPaths;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAdd;
@@ -148,5 +175,7 @@
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.CheckBox checkBoxDisableBack;
+        private System.Windows.Forms.CheckBox checkBoxShowToolTip;
     }
 }
