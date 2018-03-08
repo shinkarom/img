@@ -53,7 +53,7 @@ namespace img
 
         private void LoadImage(string ImageName)
         {
-            if (CurrentImage == ImageName) return;
+            if (ImageName == CurrentImage) return;
             hint.Hide(pictureBox1);
             CurrentImage = ImageName;
             var pic = new Bitmap(ImageName);
@@ -105,8 +105,10 @@ namespace img
             var res = MessageBox.Show($"Really delete the file\"{prog.Current}\"", "img", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                prog.DeleteCurrent();
+                var c = prog.Current;
                 Next();
+                prog.DeleteItem(c);
+                MessageBox.Show($"File \"{c}\" was deleted");
             }
         }
 

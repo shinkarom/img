@@ -59,18 +59,24 @@ namespace img
             return QueuedImages[CurPosition];
         }
 
-        public void DeleteCurrent()
+        public void DeleteItem(string ItemName)
         {
-            var c = Current;
             int removes = 0;
-            AllImages.Remove(c);
-            while (QueuedImages.Contains(c))
+            AllImages.Remove(ItemName);
+            while (QueuedImages.Contains(ItemName))
             {
-                QueuedImages.Remove(c);
+                QueuedImages.Remove(ItemName);
                 removes++;
             }
             CurPosition -= removes;
-            File.Delete(c);
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+            File.Delete(ItemName);
+        }
+
+        public void DeleteCurrent()
+        {
+            DeleteItem(Current);
         }
     }
 }
