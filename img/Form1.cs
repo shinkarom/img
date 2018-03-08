@@ -57,15 +57,31 @@ namespace img
             hint.Hide(pictureBox1);
             CurrentImage = ImageName;
             var pic = new Bitmap(ImageName);
-            // SetClientSizeCore(pic.Width,pic.Height);
-            pictureBox1.Width = pic.Width;
-            pictureBox1.Height = pic.Height;
-            /* if x or y > desktop
-             *  get the proportion of sides
-                get the larger side 
-                scale the larger side to desktop
-                scale the smaller side by proportion
-             */
+            // if x or y > desktop
+            int wid = Screen.PrimaryScreen.WorkingArea.Width;
+            int hei = Screen.PrimaryScreen.WorkingArea.Height;
+            int w, h;
+            if (pic.Width > wid || pic.Height > hei)
+            {
+                if (wid > hei)
+                {
+                    float ratio = (float)pic.Height / pic.Width;
+                    h = hei;
+                    w = (int)(h / ratio);
+                }
+                else
+                {
+                    float ratio = (float)pic.Height / pic.Width;
+                    w = wid;
+                    h = (int)(w * ratio);
+                }
+            }
+            else
+            {
+                w = pic.Width;
+                h = pic.Height;
+            }
+            SetBounds(Bounds.X,Bounds.Y,w,h);
             pictureBox1.Image = pic;
             hint.SetToolTip(pictureBox1, ImageName);
         }
@@ -87,7 +103,7 @@ namespace img
         {
             MessageBox.Show($"{prog.TotalCount} images total\n" +
                 $"{prog.Position} current | {prog.QueueCount} shown\n" +
-                $"{prog.Current}");
+                $"{prog.Current}\n");
         }
 
         private void previousToolStripMenuItem_Click(object sender, EventArgs e) => Prev();
