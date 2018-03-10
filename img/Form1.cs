@@ -75,13 +75,19 @@ namespace img
                     w = wid;
                     h = (int)(w * ratio);
                 }
+                AutoSize = false;
+                pictureBox1.Dock = DockStyle.Fill;
+                SetBounds(Bounds.X, Bounds.Y, w, h);
             }
             else
             {
                 w = pic.Width;
                 h = pic.Height;
+                AutoSize = true;
+                pictureBox1.Dock = DockStyle.None;
+                pictureBox1.Width = w;
+                pictureBox1.Height = h;
             }
-            SetBounds(Bounds.X,Bounds.Y,w,h);
             pictureBox1.Image = pic;
             hint.SetToolTip(pictureBox1, ImageName);
         }
